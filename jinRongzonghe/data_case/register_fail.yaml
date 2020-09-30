@@ -1,0 +1,31 @@
+#手机号含字母，注册失败
+- data: {"mobilephone":"152100623ab","pwd":"22223333"}
+  expect: {"code":20109,"data":{},"msg":"手机号码格式不正确","status":0}
+
+#10位手机号，注册失败
+- data: {"mobilephone":"1521006232","pwd":"22223333"}
+  expect: {"code":20109,"data":{},"msg":"手机号码格式不正确","status":0}
+
+#12位手机号，注册失败
+- data: {"mobilephone":"152100623232","pwd":"22223333"}
+  expect: {"code":20109,"data":{},"msg":"手机号码格式不正确","status":0}
+
+#输入5位数密码，注册失败
+- data: {"mobilephone":"15210062323","pwd":"22223"}
+  expect: {"code":20108,"data":{},"msg":"密码长度必须为6~18","status":0}
+
+#输入19位密码，注册失败
+- data: {"mobilephone":"15210062323","pwd":"2222322223222232222"}
+  expect: {"code":20108,"data":{},"msg":"密码长度必须为6~18","status":0}
+
+#不输入手机号，注册失败
+- data: {"mobilephone":"","pwd":"222232"}
+  expect: {"code":20103,"data":{},"msg":"手机号不能为空","status":0}
+
+#不输入密码，注册失败
+- data: {"mobilephone":"15210062323","pwd":""}
+  expect: {"code":20103,"data":{},"msg":"密码不能为空","status":0}
+
+#不输入手机号和密码，注册失败
+- data: {"mobilephone":"","pwd":""}
+  expect: {"code":20103,"data":{},"msg":"手机号不能为空","status":0}
